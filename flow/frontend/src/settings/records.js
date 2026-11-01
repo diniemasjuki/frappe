@@ -5,8 +5,8 @@ import { useDebouncedValue } from "@flow/ui-core/debounce.js";
 import { call } from "../api/frappe.js";
 import { newDoc } from "./specs.js";
 
-// What a list of records and a record's form do, for settings and for the pages beside the
-// chats, each in its own layout.
+// What a list of records and a record's form do, for settings and for the setup forms in the
+// launcher's panel, each in its own layout.
 
 const PAGE_LENGTH = 200;
 
@@ -68,7 +68,7 @@ export function useRecordList(spec, { query, filters = () => ({}) }) {
 		load();
 	}
 
-	return { rows, loaded, loading, error, hasMore, hasEnabled, load, drop, debouncedQuery };
+	return { rows, loaded, loading, error, hasMore, hasEnabled, load, drop };
 }
 
 // One document of `props.spec`'s doctype: loaded by `props.name` (or the single), or a blank new
