@@ -30,8 +30,9 @@
 			<span class="min-w-0 truncate font-medium text-ink-gray-9" :class="layout.phone ? 'text-md' : 'text-base'">{{ title }}</span>
 		</div>
 
+		<!-- by the title in a narrow frame; a wide one keeps it with the buttons at the end -->
 		<ChatMenu
-			v-if="menu || menuActions.length"
+			v-if="hasMenu && layout.narrow"
 			:session-id="menu ? flow.state.sessionId : null"
 			:title="title"
 			:actions="menuActions"
@@ -82,6 +83,17 @@
 					</button>
 				</template>
 			</Dropdown>
+			<ChatMenu
+				v-if="hasMenu && !layout.narrow"
+				:session-id="menu ? flow.state.sessionId : null"
+				:title="title"
+				:actions="menuActions"
+				align="end"
+			>
+				<button class="flow-icon-btn flex-none" title="Chat options">
+					<span class="lucide-ellipsis size-4" aria-hidden="true" />
+				</button>
+			</ChatMenu>
 			<button
 				v-if="workspace && !workspaceOpen"
 				class="flow-icon-btn ml-2"
@@ -163,6 +175,7 @@ const menuActions = computed(() => [
 		: []),
 	...props.actions,
 ])
+const hasMenu = computed(() => menu.value || menuActions.value.length > 0)
 const manageOptions = computed(() => [
 	...(props.nav.length ? [{ group: "nav", hideLabel: true, options: props.nav }] : []),
 	{
