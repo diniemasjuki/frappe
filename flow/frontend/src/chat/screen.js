@@ -38,12 +38,13 @@ export function readScreen(page) {
 }
 
 function readDesk(page) {
-	const { frappe, cur_frm, cur_list } = page;
+	const { frappe, cur_list } = page;
 	const route = frappe.get_route();
+	const frm = frappe.container?.page?.frm; // the form view keeps its form on its page
 	const screen = {};
-	if (route[0] === "Form" && cur_frm?.doc) {
-		screen.unsaved = Boolean(cur_frm.is_new() || cur_frm.is_dirty());
-		screen.missing_mandatory = missingMandatory(cur_frm, frappe);
+	if (route[0] === "Form" && frm?.doc) {
+		screen.unsaved = Boolean(frm.is_new() || frm.is_dirty());
+		screen.missing_mandatory = missingMandatory(frm, frappe);
 	} else if (route[0] === "query-report" && frappe.query_report) {
 		screen.report = {
 			name: frappe.query_report.report_name,

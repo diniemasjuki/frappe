@@ -154,26 +154,30 @@ test("a Desk form reads as its tabs, sections, labelled values and rows, and wha
 						get_docfield: (_, fieldname) =>
 							fieldname === "due_date" ? { reqd: 1 } : null,
 					},
-				},
-				cur_frm: {
-					doctype: "Sales Invoice",
-					doc: {
-						name: "new-1",
-						customer: "Palmer Productions Ltd.",
-						due_date: "",
-						items: [],
-						total_qty: 0,
+					container: {
+						page: {
+							frm: {
+								doctype: "Sales Invoice",
+								doc: {
+									name: "new-1",
+									customer: "Palmer Productions Ltd.",
+									due_date: "",
+									items: [],
+									total_qty: 0,
+								},
+								meta: {
+									fields: [
+										{ fieldname: "customer", fieldtype: "Link", reqd: 1 },
+										{ fieldname: "due_date", fieldtype: "Date" },
+										{ fieldname: "items", fieldtype: "Table", reqd: 1 },
+										{ fieldname: "total_qty", fieldtype: "Float", reqd: 1 },
+									],
+								},
+								is_new: () => true,
+								is_dirty: () => false,
+							},
+						},
 					},
-					meta: {
-						fields: [
-							{ fieldname: "customer", fieldtype: "Link", reqd: 1 },
-							{ fieldname: "due_date", fieldtype: "Date" },
-							{ fieldname: "items", fieldtype: "Table", reqd: 1 },
-							{ fieldname: "total_qty", fieldtype: "Float", reqd: 1 },
-						],
-					},
-					is_new: () => true,
-					is_dirty: () => false,
 				},
 			}
 		)
