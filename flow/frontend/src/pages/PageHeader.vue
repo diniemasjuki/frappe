@@ -11,10 +11,10 @@
 				<span class="lucide-arrow-left size-4" aria-hidden="true" />
 			</button>
 			<button v-else class="flow-icon-btn" title="Show sidebar" @click="flow.setSidebarOpen(true)">
-				<span class="lucide-panel-left size-3.5" aria-hidden="true" />
+				<span class="lucide-panel-left size-4" aria-hidden="true" />
 			</button>
 			<button class="flow-icon-btn max-md:hidden" title="New chat" @click="newChat">
-				<span class="lucide-plus size-3.5" aria-hidden="true" />
+				<span class="lucide-plus size-4" aria-hidden="true" />
 			</button>
 		</div>
 		<!-- a record leads with the way back to its list, a list with its page's icon -->

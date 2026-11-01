@@ -28,7 +28,7 @@
 			<span class="text-base font-semibold text-ink-gray-9">Flow</span>
 			<span class="flex-1" />
 			<button class="flow-icon-btn" title="Hide sidebar" @click="emit('close')">
-				<span class="lucide-panel-left size-3.5" aria-hidden="true" />
+				<span class="lucide-panel-left size-4" aria-hidden="true" />
 			</button>
 		</div>
 

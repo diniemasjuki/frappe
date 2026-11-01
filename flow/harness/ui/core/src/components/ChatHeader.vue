@@ -12,10 +12,10 @@
 	>
 		<template v-if="!sidebarOpen && !history">
 			<button class="flow-icon-btn" title="Show sidebar" @click="emit('open-sidebar')">
-				<span class="lucide-panel-left size-3.5" aria-hidden="true" />
+				<span class="lucide-panel-left size-4" aria-hidden="true" />
 			</button>
 			<button v-if="started" class="flow-icon-btn" title="New chat" @click="flow.startNewChat()">
-				<span class="lucide-plus size-3.5" aria-hidden="true" />
+				<span class="lucide-plus size-4" aria-hidden="true" />
 			</button>
 		</template>
 
@@ -73,12 +73,12 @@
 
 			<ChatHistory v-if="history" />
 			<button v-if="history && started" class="flow-icon-btn" title="New chat" @click="flow.startNewChat()">
-				<span class="lucide-plus size-3.5" aria-hidden="true" />
+				<span class="lucide-plus size-4" aria-hidden="true" />
 			</button>
 			<Dropdown v-if="history && manage" align="end" :options="manageOptions">
 				<template #trigger>
 					<button class="flow-icon-btn" title="Manage">
-						<span class="lucide-settings size-3.5" aria-hidden="true" />
+						<span class="lucide-settings size-4" aria-hidden="true" />
 					</button>
 				</template>
 			</Dropdown>
@@ -88,7 +88,7 @@
 				title="Open panel"
 				@click="flow.setWorkspaceOpen(true)"
 			>
-				<span class="lucide-panel-left size-3.5 -scale-x-100" aria-hidden="true" />
+				<span class="lucide-panel-left size-4 -scale-x-100" aria-hidden="true" />
 			</button>
 			<slot name="end" />
 		</span>

@@ -67,10 +67,10 @@
 				>
 					<template v-if="inPanel" #end>
 						<button class="flow-icon-btn" title="Open in new tab" @click="openInTab">
-							<span class="lucide-external-link size-3.5" aria-hidden="true" />
+							<span class="lucide-external-link size-4" aria-hidden="true" />
 						</button>
 						<button class="flow-icon-btn" title="Close" @click="closePanel">
-							<span class="lucide-x size-3.5" aria-hidden="true" />
+							<span class="lucide-x size-4" aria-hidden="true" />
 						</button>
 					</template>
 				</ChatHeader>
