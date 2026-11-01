@@ -96,8 +96,11 @@ export function useRecord(props, emit) {
 	const visibleFields = computed(() =>
 		props.spec.fields.filter((field) => !field.when || field.when(doc.value))
 	);
+	// none until the record is in: a rule may read it
 	const actions = computed(() =>
-		(props.spec.actions ?? []).filter((action) => !action.when || action.when(doc.value))
+		(doc.value ? props.spec.actions ?? [] : []).filter(
+			(action) => !action.when || action.when(doc.value)
+		)
 	);
 	const multilinks = computed(() =>
 		props.spec.fields.filter((field) => field.type === "multilink")
